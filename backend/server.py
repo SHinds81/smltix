@@ -27,7 +27,7 @@ def get_time():
 
 
 # Route for seeing a data
-@app.route('/')
+@app.route('/test')
 def get_time_two():
  
     # Returning an api for showing in  reactjs
