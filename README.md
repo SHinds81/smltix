@@ -1,3 +1,20 @@
+## SMALLTIX
+Smaller, cheaper eventbrite
+take percentage of sales
+if free event, charge small fee of like 20AUD
+
+# TO DO LIST
+## DOCUMENTATION
+HOW TO LOAD IN REACT
+PYTHON VERSION
+HOW TO RUN PYTHON
+
+## DEVELOP
+GENERATE QR
+POST TO BACKEND
+DEVELOP TICKET CODES
+
+### Original React generated readme starts here
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
