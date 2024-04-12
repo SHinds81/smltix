@@ -4,7 +4,7 @@
 
 
 # Import flask and datetime module for showing date and time
-from flask import Flask
+from flask import Flask, request
 import datetime
  
 x = datetime.datetime.now()
@@ -37,6 +37,19 @@ def get_time_two():
         "Date":x, 
         "programming":"test"
         }
+
+#  route for seeing data
+@app.route('/add_todo', methods=['POST'])
+def post_data():
+    post_data_data = request.get_json()
+    
+
+    return {
+        'Name':"Super home",
+        "Age":"314",
+        "Date":x,
+        "programming":"home"
+    }
   
      
 # Running app

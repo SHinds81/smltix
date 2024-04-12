@@ -1,10 +1,10 @@
-// Filename - Route.js
+// Filename - Route2.js
  
 // Importing modules
 import React, { useState, useEffect } from "react";
 import "./App.css";
  
-function Route() {
+function Route2() {
     // usestate for setting a javascript
     // object for storing and using data
     const [data, setdata] = useState({
@@ -18,7 +18,7 @@ function Route() {
     useEffect(() => {
         // Using fetch to fetch the api from 
         // flask server it will be redirected to proxy
-        fetch("/data").then((res) =>
+        fetch("/test").then((res) =>
             res.json().then((data) => {
                 // Setting a data from api
                 setdata({
@@ -34,7 +34,7 @@ function Route() {
     return (
         <div className="App">
             <header className="App-header">
-                <h2>Test 1</h2>
+                <h2>Test 2</h2>
                 {/* Calling a data from setdata for showing */}
                 <p>{data.name}</p>
                 <p>{data.age}</p>
@@ -46,4 +46,4 @@ function Route() {
     );
 }
  
-export default Route;
+export default Route2;
