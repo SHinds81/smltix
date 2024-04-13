@@ -1,0 +1,26 @@
+.grid-container {
+    display: grid;
+    align-content: center;
+    justify-content: space-evenly;
+    background-color: palevioletred;
+}
+
+p {
+ background-color: hsl(271, 76%, 53%);
+}
+
+h1 {
+    background-color: aqua;
+}
+
+.column {
+    float: left;
+    width: 25%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

@@ -9,7 +9,7 @@ import PageRoute2 from './pages/PageRoute2';
 
 import Home from './pages/Home';
 import NoPage from './pages/NoPage';
-import Layout from './pages/Layout';
+import Layout from './layout/Layout';
 
 //import Route from './Route';
 import Route2 from './Route2';
