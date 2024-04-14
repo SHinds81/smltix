@@ -17,6 +17,9 @@ const Layout = () => {
       <div class="column">
       <Link to="/route2">Route2</Link>
       </div>
+      <div class="column">
+      <Link to="/tute">Tute</Link>
+      </div>
     </div>
       <Outlet />
     </>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import APIService from "../components/APIService";
 import "./App.css";
 
@@ -26,12 +26,15 @@ const PageRoute = (props) => {
         data.date = "sfdasfad",
         data.programming = "posted again!");
         
-    };
+    };    
 
     return(
         <div>
             <h1>PAGE ROUTE</h1>
-            
+            <p>NAME: {data.name}</p>
+            <p>AGE: {data.age}</p>
+            <p>DATE: {data.date}</p>
+            <p>PROGRAMMING: {data.programming}</p>
         </div>
     )
 }
