@@ -4,13 +4,15 @@ import "./App.css";
 
 
 const PageRoute = (props) => {
-    const [name, setName] = useState('');
-    const [age, setAge] = useState('');
-    const [date, setDate] = useState('');
-    const [programming, setProgramming] = useState('');
+    const [data, setData] = useState({
+        name: "",
+        age: 0,
+        date: "",
+        programming: "",
+    });
 
     const insertData = () => {
-        APIService.PostData({ name, age, date, programming })
+        APIService.PostData({ data })
             .then((response) => props.insertedData(response))
             .catch(error => console.log('error', error));
     };
@@ -18,18 +20,20 @@ const PageRoute = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         insertData();
-        setName('');
-        setAge('');
-        setDate('');
-        setProgramming('');
+        setData(
+        data.name = "post!",
+        data.age = 44,
+        data.date = "sfdasfad",
+        data.programming = "posted again!");
+        
     };
 
     return(
         <div>
             <h1>PAGE ROUTE</h1>
+            
         </div>
     )
-
 }
 
 export default PageRoute;
