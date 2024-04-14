@@ -30,6 +30,8 @@ def get_time():
 @app.route('/test')
 def get_time_two():
  
+    print('test test')
+
     # Returning an api for showing in  reactjs
     return {
         'Name':"home", 
@@ -41,14 +43,13 @@ def get_time_two():
 #  route for seeing data
 @app.route('/add_todo', methods=['POST'])
 def post_data():
-    post_data_data = request.get_json()
-    
+    name = request.json['name']
+    age = request.json['age']
+    date = request.json['date']
+    programming = request.json['programming']
 
     return {
-        'Name':"Super home",
-        "Age":"314",
-        "Date":x,
-        "programming":"home"
+        programming
     }
   
      
