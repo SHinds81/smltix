@@ -1,54 +1,77 @@
-import React, { useState, useEffect } from 'react';
+import { useState,useEffect } from 'react'
 import './App.css';
-import APIService from '../components/APIService';
-import Form from '../components/Form';
-
-const Tute = (props) => {
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
-
-    const insertArticle = () => {
-        APIService.InsertArticle({ title, body })
-            .then((response) => props.insertedArticle(response))
-            .catch(error => console.log('error', error));
-    };
+import ArticleList from './Components/ArticleList'
+import Form from './Components/Form'
 
 
-      
+function Tute() {
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        insertArticle();
-        setTitle('');
-        setBody('');
-    };
+  const [articles, setArticles] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
-    return (
-        <div>
-            <h2>Add New Article</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="title">Title:</label>
-                    <input
-                        type="text"
-                        id="title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="body">Body:</label>
-                    <textarea
-                        id="body"
-                        value={body}
-                        onChange={(e) => setBody(e.target.value)}
-                    />
-                </div>
-                <button type="submit">Submit</button>
-                <Form insertedArticle={insertedArticle} />
-            </form>
-        </div>
-    );
-};
+
+  // Modify the current state by setting the new data to
+  // the response from the backend
+
+  useEffect(()=>{
+    fetch('http://localhost:5000/articles',{
+      'methods':'GET',
+      headers : {
+        'Content-Type':'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(response => setArticles(response))
+    .catch(error => console.log(error))
+
+
+  },[])
+
+  // React Hook "useEffect" cannot be called in a class component. React Hooks must be called 
+  // in a React function component or a custom React Hook function react-hooks/rules-of-hooks
+
+  const insertedArticle = (article) =>{
+    const new_articles = [...articles,article]
+    setArticles(new_articles)
+  }
+
+  const toggleShowForm = () => {
+    setShowForm(!showForm);
+  }
+
+  return (
+    <div className="App">
+
+    <div className="container">
+    <div className="row p-3">
+      <div className="text-center">
+      <h1>Post data from React to Flask.</h1>
+
+      <button 
+      onClick={toggleShowForm}
+      className="btn btn-primary"
+      >
+      Write an article
+      <i className="bi bi-pencil-square m-2"></i>
+      </button>
+
+      </div>
+
+    </div>
+
+      <ArticleList 
+      articles={articles} 
+      />
+
+      {showForm && (
+      <Form 
+        insertedArticle={insertedArticle}
+        />
+      )}
+    </div>
+
+    </div>
+  );
+}
 
 export default Tute;
