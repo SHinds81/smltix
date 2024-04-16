@@ -26,8 +26,12 @@ function PageRoute(){
         );
     }, []);
 
+    const shoot = () => {
+        alert("Great Shot!");
+      }
 
-    fetch('/add_todo2', {
+
+    const postData = () => fetch('/add_todo2', {
         method: 'POST',
         headers: {
         'Accept': 'application/json',
@@ -51,7 +55,11 @@ function PageRoute(){
             <p>PROGRAMMING: {data.programming}</p>
         </div>
         */
-       <div>POST CHECK</div>
+       <div>
+        <h1>POST CHECK</h1>
+       <button onClick={shoot}>Take the shot!</button>
+       <button onClick={postData}>Post data</button>
+       </div>
     )
 }
 
