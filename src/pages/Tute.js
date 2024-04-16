@@ -1,7 +1,8 @@
 import { useState,useEffect } from 'react'
 import './App.css';
-import ArticleList from './Components/ArticleList'
 import Form from './Components/Form'
+
+import ArticleList from './Components/ArticleList'
 
 
 function Tute() {
