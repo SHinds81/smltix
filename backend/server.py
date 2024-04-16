@@ -48,8 +48,22 @@ def post_data():
     date = request.json['date']
     programming = request.json['programming']
 
+    print('post success')
+
     return {
         programming
+    }
+
+@app.route('/add_todo2', methods=['POST'])
+def post_data2():
+    name = request.json['name']
+    age = request.json['age']
+
+    print('post success')
+    print('fda: ' + name)
+    print('adf: ' + str(age))
+
+    return {
     }
   
      

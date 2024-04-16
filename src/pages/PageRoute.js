@@ -1,34 +1,48 @@
-import React, { useState } from "react";
-import APIService from "../components/APIService";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
-
-const PageRoute = (props) => {
-    const [data, setData] = useState({
+function PageRoute(){
+    const [data, setdata] = useState({
         name: "",
         age: 0,
         date: "",
         programming: "",
     });
 
-    const insertData = () => {
-        APIService.PostData({ data })
-            .then((response) => props.insertedData(response))
-            .catch(error => console.log('error', error));
-    };
+    // Using useEffect for single rendering
+    useEffect(() => {
+        // Using fetch to fetch the api from 
+        // flask server it will be redirected to proxy
+        fetch("/data").then((res) =>
+            res.json().then((data) => {
+                // Setting a data from api
+                setdata({
+                    name: data.Name,
+                    age: data.Age,
+                    date: data.Date,
+                    programming: data.programming,
+                });
+            })
+        );
+    }, []);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        insertData();
-        setData(
-        data.name = "post!",
-        data.age = 44,
-        data.date = "sfdasfad",
-        data.programming = "posted again!");
-        
-    };    
+
+    fetch('/add_todo2', {
+        method: 'POST',
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+        name: 'yourValue',
+        age: 2345,
+        date: 'yourOtherValue',
+        programming: 'yourOtherValue',
+        })
+    })
 
     return(
+        /*
         <div>
             <h1>PAGE ROUTE</h1>
             <p>NAME: {data.name}</p>
@@ -36,6 +50,8 @@ const PageRoute = (props) => {
             <p>DATE: {data.date}</p>
             <p>PROGRAMMING: {data.programming}</p>
         </div>
+        */
+       <div>POST CHECK</div>
     )
 }
 

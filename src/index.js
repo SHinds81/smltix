@@ -11,7 +11,6 @@ import Home from './pages/Home';
 import NoPage from './pages/NoPage';
 import Layout from './layout/Layout';
 
-import Tute from './pages/Tute';
 
 //import Route from './Route';
 import Route2 from './Route2';
@@ -26,7 +25,6 @@ root.render(
       <Route path="pageroute" element={<PageRoute />} />
       <Route path="pageroute2" element={<PageRoute2 />} />
       <Route path="route2" element={<Route2 />} />
-      <Route path="tute" element={<Tute />} />
     </Route>
   </Routes>
 </BrowserRouter>
