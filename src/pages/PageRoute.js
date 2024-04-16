@@ -26,11 +26,12 @@ function PageRoute(){
         );
     }, []);
 
+    //alert button example
     const shoot = () => {
         alert("Great Shot!");
       }
 
-
+    //post data
     const postData = () => fetch('/add_todo2', {
         method: 'POST',
         headers: {
