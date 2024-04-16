@@ -13,11 +13,7 @@ const Tute = (props) => {
             .catch(error => console.log('error', error));
     };
 
-    //ERROR HERE
-    const insertedArticle = (article) =>{
-        const new_articles = [...articles,article]
-        setArticles(new_articles)
-      }
+
       
 
     const handleSubmit = (event) => {

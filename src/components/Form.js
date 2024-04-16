@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React,{ useState } from 'react';
 import APIService from './APIService';
+
 
 const Form = (props) => {
     const [title, setTitle] = useState('')
@@ -19,35 +20,40 @@ const Form = (props) => {
     }
 
   return (
-    <form onSubmit = {handleSubmit} >
+    <div className="shadow p-4">
 
-    <label htmlFor="title" className="form-label">Title</label>
-    <input 
-    type="text"
-    className="form-control" 
-    placeholder ="Enter title"
-    value={title}
-    onChange={(e)=>setTitle(e.target.value)}
-    required
-    />
+        <form onSubmit = {handleSubmit} >
 
-    <label htmlFor="body" className="form-label">Body</label>
-    <textarea 
-    className="form-control" 
-    placeholder ="Enter body" 
-    rows='6'
-    value={body}
-    onChange={(e)=>setBody(e.target.value)}
-    required
-    >
-    </textarea>
+          <label htmlFor="title" className="form-label">Title</label>
+          <input 
+          type="text"
+          className="form-control" 
+          placeholder ="Enter title"
+          value={title}
+          onChange={(e)=>setTitle(e.target.value)}
+          required
+          />
 
-    <button 
-    className="btn btn-primary mt-2"
-    >
-    Publish article</button>
+          <label htmlFor="body" className="form-label">Body</label>
+          <textarea 
+          className="form-control" 
+          placeholder ="Enter body" 
+          rows='6'
+          value={body}
+          onChange={(e)=>setBody(e.target.value)}
+          required
+          >
+          </textarea>
 
-  </form>
+          <button 
+          className="btn btn-primary mt-2"
+          >
+          Publish article</button>
+          
+        </form>
+              
+
+    </div>
   )}
 
 export default Form;
