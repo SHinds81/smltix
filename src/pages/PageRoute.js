@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function PageRoute(){
+    const nameValue = 'sfsfsf';
+
     const [data, setdata] = useState({
         name: "",
         age: 0,
@@ -33,6 +35,20 @@ function PageRoute(){
 
     //post data
     const postData = () => fetch('/add_todo2', {
+        method: 'POST',
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+        name: nameValue,
+        age: 2345,
+        date: 'yourOtherValue',
+        programming: 'yourOtherValue',
+        })
+    })
+
+    const postData2 = () => fetch('/add_todo2', {
         method: 'POST',
         headers: {
         'Accept': 'application/json',
